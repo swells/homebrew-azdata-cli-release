@@ -1,4 +1,4 @@
-class AzdataCli < Formula
+class AzdataCliAT1502070 < Formula
   include Language::Python::Virtualenv
 
   desc "Microsoft Azdata CLI"
