@@ -10,7 +10,7 @@ class AzdataCli < Formula
      root_url "https://github.com/swells/homebrew-azdata-cli-release/releases/download/15.0.2070"
      cellar :any
      sha256 "2da9a4ba05f137890335c3b0323e5febf54fefff0a456ecee0f081c2b155ebea" => :mojave
-  #end
+  end
 
   depends_on "freetds"
   depends_on "openssl@1.1"
