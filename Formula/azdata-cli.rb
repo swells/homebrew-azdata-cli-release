@@ -4,14 +4,13 @@ class AzdataCli < Formula
   desc "Microsoft Azdata CLI"
   homepage "https://docs.microsoft.com/en-us/sql/big-data-cluster/reference-azdata"
   url "https://github.com/swells/homebrew-azdata-cli-release/releases/download/15.0.2070/azdata-cli-15.0.2070.tar.gz"
-  version "15.0.2070"
   sha256 "84aad04d8aa1f8efb1efce361646b13bd73e37c1377270f6920d31a720fe1ea8"
 
   bottle do
-    root_url "https://github.com/swells/homebrew-azdata-cli-release/releases/download/15.0.2070"
-    cellar :any
-    sha256 "c3bf58265df8ff6c8289280fd605831038fde95f125bc9d3e9c0f21a06b13bb8" => :mojave
-  end
+     root_url "https://github.com/swells/homebrew-azdata-cli-release/releases/download/15.0.2070"
+     cellar :any
+     sha256 "2da9a4ba05f137890335c3b0323e5febf54fefff0a456ecee0f081c2b155ebea" => :mojave
+  #end
 
   depends_on "freetds"
   depends_on "openssl@1.1"
@@ -21,7 +20,7 @@ class AzdataCli < Formula
 
   resource "more-itertools" do
     url "https://files.pythonhosted.org/packages/c2/31/45f61c8927c9550109f1c4b99ba3ca66d328d889a9c9853a808bff1c9fa0/more-itertools-7.2.0.tar.gz"
-    sha256 "409cd48d4db7052af495b09dec721011634af3753ae1ef92d2b32f73a745f832"
+    sha256 "2da9a4ba05f137890335c3b0323e5febf54fefff0a456ecee0f081c2b155ebea"
   end
 
   resource "zipp" do
