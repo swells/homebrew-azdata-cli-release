@@ -13,11 +13,11 @@ class AzdataCli < Formula
     sha256 "c3bf58265df8ff6c8289280fd605831038fde95f125bc9d3e9c0f21a06b13bb8" => :mojave
   end
 
+  depends_on "freetds"
   depends_on "openssl@1.1"
   depends_on "python"
-  depends_on "zeromq"
   depends_on "unixodbc"
-  depends_on "freetds"
+  depends_on "zeromq"
 
   resource "more-itertools" do
     url "https://files.pythonhosted.org/packages/c2/31/45f61c8927c9550109f1c4b99ba3ca66d328d889a9c9853a808bff1c9fa0/more-itertools-7.2.0.tar.gz"
@@ -344,11 +344,6 @@ class AzdataCli < Formula
     sha256 "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
   end
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/a9/23/720c7558ba6ad3e0f5ad01e0d6ea2288b486da32f053c73e259f7c392042/setuptools-36.0.1.zip"
-    sha256 "e17c4687fddd6d70a6604ac0ad25e33324cec71b5137267dd5c45e103c4b288a"
-  end
-
   resource "future" do
     url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
     sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
@@ -526,7 +521,7 @@ class AzdataCli < Formula
     # Get the CLI components to install
     components = [
       buildpath/"azdata-cli",
-      buildpath/"azdata-cli-core"
+      buildpath/"azdata-cli-core",
     ]
     components += Pathname.glob(buildpath/"command-modules/azdata-cli-*/")
 
@@ -544,7 +539,8 @@ class AzdataCli < Formula
   end
 
   test do
-    # todo: make test
-    assert_equal "azdata-cli", "azdata-cli"
+    json_text = shell_output("#{bin}/azdata context list --output json")
+    out = JSON.parse(json_text)
+    assert_equal out["stderr"], []
   end
 end
