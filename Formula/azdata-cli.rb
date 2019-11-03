@@ -543,3 +543,4 @@ class AzdataCli < Formula
     assert_equal out["stderr"], []
   end
 end
+
